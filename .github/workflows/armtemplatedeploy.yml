@@ -25,19 +25,23 @@ jobs:
           subscriptionId: fca6816e-81f4-4339-8338-fcfe4701656f
           region: Australia East
           template: ./arm-templates/resourcegroup.json
+          parameters:
+            location="Australia East"
+            resourceGroupName=rg-githubaction
           deploymentName: rg-githubactions
       
       - name: Deploy Storage Account
         uses: Azure/arm-deploy@v1
+        id: storageAccountDeploy
         with:
           scope: resourcegroup
           resourceGroupName: "rg-githubactions"
           subscriptionId: fca6816e-81f4-4339-8338-fcfe4701656f
           template: ./arm-templates/storageaccount.json
           parameters:
-            ./arm-templates/storageaccount.parameters.json
+            sku=Standare_LRS
             storageAccountName=globostg002
             location="Australia East"
           deploymentMode: incremental
 
-
+      - run: echo ${{ steps.storageAccountDeploy.outputs.BlobUri }}
