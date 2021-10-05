@@ -39,7 +39,7 @@ jobs:
           subscriptionId: fca6816e-81f4-4339-8338-fcfe4701656f
           template: ./arm-templates/storageaccount.json
           parameters:
-            sku=Standare_LRS
+            sku=Standard_LRS
             storageAccountName=globostg002
             location="Australia East"
           deploymentMode: incremental
