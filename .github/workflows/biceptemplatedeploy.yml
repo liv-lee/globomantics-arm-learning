@@ -77,7 +77,7 @@ jobs:
           location="${{ env.location }}
 
       - name: Deploy vnet
-        uses: Azuru/arm-deploy@v1
+        uses: Azure/arm-deploy@v1
         with:
           scope: resourcegroup
           resourceGroupName: ${{ env.resource_group_name }}
