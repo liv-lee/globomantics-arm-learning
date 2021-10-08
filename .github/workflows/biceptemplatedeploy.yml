@@ -69,7 +69,7 @@ jobs:
         with:
          scope: subscription
          region: ${{ env.location }}
-         subsciptionId: ${{ env.subscriptionId }}
+         subscriptionId: ${{ env.subscriptionId }}
          deploymentName: ${{ env.resource_group_name }}
          template: ./bicep-templates/resourcegroup.bicep
          parameters:
@@ -81,7 +81,7 @@ jobs:
         with:
           scope: resourcegroup
           resourceGroupName: ${{ env.resource_group_name }}
-          subsciptionId: ${{ env.subscriptionId }}
+          subscriptionId: ${{ env.subscriptionId }}
           template: ./bicep-templates/virtualnetwork.bicep
           parameters:
             vNetPrefix=biceparmdeploy
